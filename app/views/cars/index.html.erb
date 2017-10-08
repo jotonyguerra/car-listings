@@ -1,0 +1,11 @@
+<h1> Cars </h1>
+
+<div class="cars-list">
+  <% @cars.each do |car| %>
+    <li><%=car.name%>
+      <%=car.manufacturer.name%>
+      <%=car.color%>
+      <%=car.year%>
+      <%=car.mileage%></li>
+  <% end %>
+</div>
