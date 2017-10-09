@@ -8,3 +8,10 @@
    <% if flash[:errors] %>
      <p><%= flash[:errors] %></p>
    <% end %>
+
+
+   <% if @errors %>
+     <% @manufacturer.errors.full_messages.each do |message| %>
+       <%= message %>
+     <% end %>
+   <% end %>

@@ -35,7 +35,7 @@ feature 'user adds car', %{
   scenario 'user enters invalid inputs for car and sees errors' do
     visit new_car_path
 
-    select manufacturer_2.name, from: 'Manufacturer'
+    select manufacturer_2.name, from: 'Manufacturer', visible: false
     fill_in 'Name', with: 'Camry'
     fill_in 'Color', with: 'Black'
     fill_in 'Year', with: '1919'
