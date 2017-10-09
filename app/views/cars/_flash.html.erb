@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+<% if flash[:errors] %>
+  <p><%= flash[:errors] %></p>
+<% end %>
+
+
+<% if @errors %>
+  <% @car.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
