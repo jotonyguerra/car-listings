@@ -1,5 +1,10 @@
 <h1> Manufacturers </h1>
-
+<%= render 'flash' %>
+<% if @errors %>
+  <% @manufacturer.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <div class="manufacturer-list">
 <% @manufacturers.each do |m| %>
   <li><%= m.name %> <%= m.country %></li>
