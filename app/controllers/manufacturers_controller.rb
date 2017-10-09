@@ -10,9 +10,10 @@ class ManufacturersController < ApplicationController
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
     if @manufacturer.save
-      flash[:success]
+      flash[:success] = "Manufacturer successfully added"
+      redirect_to root_path
     else
-      flash[:error]
+      @errors = @manufacturer.errors.messages
       render :new
     end
   end

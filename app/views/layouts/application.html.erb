@@ -11,6 +11,15 @@
   <body>
     <%= link_to "All Manufacturers", root_path %>
     <%= link_to "All Cars", cars_path %>
+    <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:success] %>
+    <p><%= flash[:success] %></p>
+    <% end %>
+    <% if flash[:errors] %>
+    <p><%= flash[:errors] %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
