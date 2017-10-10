@@ -10,3 +10,22 @@
       <%=car.description%></li>
   <% end %>
 </div>
+
+
+<div class="search">
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:query, "Search for:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<% if params[:query].present? %>
+  <% if @cars.blank? %>
+    No Results
+  <% else %>
+    <% @cars.each do |car| %>
+      <%= car.name %>
+    <% end %>
+  <% end %>
+<% end %>

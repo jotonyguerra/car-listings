@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function) {
+  $(".search").on('click', function(){
+    var request = $.ajax({
+      method: 'GET'
+      url: '/cars'
+      data: {car: 'car'}.
+    }).done(function(data){
+    })
+  })
+}
+// create html elements
+var btn = document.createElement("BUTTON");
+var t = document.createTextNode("CLICK ME");
+}

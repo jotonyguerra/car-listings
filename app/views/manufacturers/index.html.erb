@@ -2,10 +2,13 @@
 <%= render 'flash' %>
 
 <div class="manufacturer-list">
+  <ul>
 <% @manufacturers.each do |m| %>
-  <li><%= m.name %> <%= m.country %></li>
+  <li><strong><%= m.name %></strong>
+      <weak><%= m.country %> </weak></li>
 <% end %>
 </div>
+  </ul>
 
 <div class="link">
   <%= link_to "New", new_manufacturer_path %>

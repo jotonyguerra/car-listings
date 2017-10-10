@@ -2,6 +2,7 @@ class ManufacturersController < ApplicationController
 
   def index
     @manufacturers = Manufacturer.all
+    # @manufacterer.to_json
   end
 
   def new
@@ -22,5 +23,6 @@ class ManufacturersController < ApplicationController
   def manufacturer_params
     params.require(:manufacturer).permit(:name, :country)
   end
+
 
 end

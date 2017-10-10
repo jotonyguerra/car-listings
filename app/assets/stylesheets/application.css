@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body {
+       text-align: center;
+       background: #193549;
+       color: white;
+       font-family: 'helvetica neue', sans-serif;
+       font-weight: 100;
+       font-size: 50px;
+     }
+
+h1 {
+    color: inherit;
+    border: .4rem solid black;
+    border-radius: .5rem;
+    text-shadow: 0 0 .5rem black;
+
+  }
+
+.manufacturer-list {
+  display: flex;
+  justify-content: center;
+
+}
+
+ul li{
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 10px 0 10px 20px;
+    text-indent: -1em;
+}
