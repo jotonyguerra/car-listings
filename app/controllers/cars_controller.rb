@@ -2,6 +2,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+    # @Car = Car.search(params[:search])
+
     # if params[:query].present?
     #   @cars = Car.text_search(params[:query]) .page(params[:page]).per_page(5)
     # else
@@ -9,9 +11,17 @@ class CarsController < ApplicationController
     # end
   end
 
+  # def search
+  #   @car = Car.search(params[:search])
+  #   respond_to do |format|
+  #    format.js  { render :partial => "cars/search", :locals => {:search => @car, :query => params[:search]} }
+  #    format.html    { render :index }
+  #   end
+  # end
+
   def new
     @car = Car.new
-    @manufacturer = Manufacturer.all
+    @manufacturers = Manufacturer.all
   end
 
   def create
