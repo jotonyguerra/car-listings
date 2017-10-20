@@ -1,35 +1,24 @@
 <h1> Cars </h1>
 <%= render "flash" %>
-<div class="cars-list">
+
+<div id="cars-list">
   <% @cars.each do |car| %>
     <li><%=car.name%>
       <%=car.manufacturer.name%>
       <%=car.color%>
       <%=car.year%>
       <%=car.mileage%>
-      <%=car.description%></li>
+      <% if !car.description.nil? %>
+        <%=car.description%></li>
+      <%end%>
   <% end %>
 </div>
 
-<div class="link">
-  <%= link_to "New", new_car_path %>
-</div>
 
-
-<div class="search">
-  <%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:query, "Search for:") %>
-    <%= text_field_tag(:query) %>
+<div id="search">
+  <%= form_tag("/search", remote: true) do %>
+    <%= label_tag(:search, "Search for:") %>
+    <%= text_field_tag(:search) %>
     <%= submit_tag("Search") %>
   <% end %>
 </div>
-
-<% if params[:query].present? %>
-  <% if @cars.blank? %>
-    No Results
-  <% else %>
-    <% @cars.each do |car| %>
-      <%= car.name %>
-    <% end %>
-  <% end %>
-<% end %>

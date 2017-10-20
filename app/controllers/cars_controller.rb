@@ -1,23 +1,15 @@
 class CarsController < ApplicationController
 
   def index
-    @cars = Car.all
-    # @Car = Car.search(params[:search])
-
-    # if params[:query].present?
-    #   @cars = Car.text_search(params[:query]) .page(params[:page]).per_page(5)
-    # else
-    #   @cars = Car.empty
-    # end
+    @cars = Car.search(params[:search])
   end
-
-  # def search
-  #   @car = Car.search(params[:search])
-  #   respond_to do |format|
-  #    format.js  { render :partial => "cars/search", :locals => {:search => @car, :query => params[:search]} }
-  #    format.html    { render :index }
-  #   end
-  # end
+  def search
+    @products = Product.search(params[:search])
+    respond_to do |format|
+      format.js  { render :partial => "elements/livesearch", :locals => {:search => @cars, :query => params[:search]} }
+      format.html    { render :index }
+    end
+  end
 
   def new
     @car = Car.new
@@ -37,8 +29,9 @@ class CarsController < ApplicationController
   end
 
   private
+
   def car_params
-    params.require(:car).permit(:query, :name, :color, :year, :mileage, :description,
-                                                :manufacturer, :manufacturer_id)
+    params.require(:car).permit(:search, :name, :color, :year, :mileage, :description,
+                                                          :manufacturer_id)
   end
 end

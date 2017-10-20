@@ -20,6 +20,8 @@
     <% if flash[:errors] %>
     <p><%= flash[:errors] %></p>
     <% end %>
+    <%= link_to "Add New Car", new_car_path %>
+
     <%= yield %>
   </body>
 </html>
