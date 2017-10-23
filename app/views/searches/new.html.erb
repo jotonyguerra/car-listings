@@ -1,0 +1,28 @@
+<h1> Advanced Search </h1>
+
+<%= form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :keyword %>
+    <%= f.text_field :keyword %>
+  </div>
+
+  <div class="field">
+    <%= f.label :manufacturer %>
+    <%= f.collection_select :manufacturer_id, Manufacturer.all, :id, :name,
+    include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.collection_select(:car_id, Car.all, :id, :color,
+    include_blank: true )%>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.collection_select :car_id, Car.all, :id, :year,
+    include_blank: true %>
+  </div>
+
+  <div class="actions"><%= f.submit "search" %></div>
+  <% end %>

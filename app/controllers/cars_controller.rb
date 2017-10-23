@@ -3,6 +3,7 @@ class CarsController < ApplicationController
   def index
     @cars = Car.search(params[:search])
   end
+
   def search
     @products = Product.search(params[:search])
     respond_to do |format|
